@@ -1,0 +1,79 @@
+<!-- Obtenir la data actual del sistema. A continuació mostrar per pantalla:
+aquesta data en format llarg (Ex: Avui és DD de MM de YYYY), el nombre de
+setmanes que han passat de l’any, el percentatge de dies transcorreguts de
+l’any, el nombre de dies que resten d’any. 
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		document.write('<h3>Dias</h3>')
+		var fechaActual = new Date();
+		document.write('Avui es '+fechaActual.getDate()+' de '+fechaActual.getMonth()+' del '+fechaActual.getFullYear());
+
+		var inicial = new Date(fechaActual.getFullYear(),0,1);
+		var final = new Date(fechaActual.getFullYear(),11,31);
+
+		var diferencia = (fechaActual - inicial);
+		var dias =Math.round( diferencia / 86400000);
+		var Semanas = Math.floor(dias / 7);
+		// alert(dias);
+
+		document.write('<br />Han pasado '+Semanas+ ' semanas');
+
+		var diferenciaAnyo = (final - fechaActual);
+		var diasAnyo = Math.floor(diferenciaAnyo / 86400000);
+		// alert(diasAnyo);
+
+		document.write('<br />Faltan '+diasAnyo+ ' dias');
+
+
+		var diasAnyo = dias + diasAnyo + 1;
+		var porcentaje = Math.round((dias / diasAnyo)*100);
+		// alert(porcentaje+'%');
+		document.write('<br />LLevamos transcurrido '+porcentaje+ '%');
+		
+
+// Obtenir la hora actual del sistema
+// i mostrar el mateix respecte al dia actual: Ara són les: HH:MM:SS, el
+// percentatge de dia que ha transcorregut i el que queda. Representeu el
+// percentatge d’any i de dia transcorregut i que queda amb xifres (Ex.
+// 46.5%), i també mitjançant l’ús de símbols gràfics (taules amb cel·les
+// colorejades o imatges).
+
+		document.write('<h3>Horas</h3>');
+
+		var horaActual = new Date();
+		var horaInicio = new Date(horaActual.getFullYear(),horaActual.getMonth(),horaActual.getDate());
+
+		var horaFinal= new Date(horaActual.getFullYear(),horaActual.getMonth(),horaActual.getDate());
+		horaFinal.setHours(23);
+		horaFinal.setMinutes(59);
+		horaFinal.setSeconds(59);
+
+
+		var diaTranscorregut = ((horaActual - horaInicio)  / (horaFinal - horaInicio))*100;
+		// diaTranscorregut = diaTranscorregut / (1000*60);
+		// alert(diaTranscorregut);
+		// var resta = diaTranscorregut * 360 * 10;
+		// alert(diaTranscorregut);
+		document.write('Dia transcorregut: '+Math.abs((Math.round(diaTranscorregut+'e'+1)+'e-'+1))+'%');
+
+		document.write('<br />El que queda: '+Math.abs((Math.round(diaTranscorregut+'e'+1)+'e-'+1-100))+'%');
+
+
+
+
+
+		
+
+
+	
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
