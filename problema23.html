@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+/*		.mitad{
+			background-color: green;
+		}*/
+		.rojo{
+			background-color: red;
+		}
+		td{
+			padding: 2.5px;
+		}
+/*		.joder{
+				background-color:purple;
+		}*/
+	</style>
+</head>
+<body>
+<table >
+	<script type="text/javascript">
+
+		var eje_x=prompt("Eje x")*1;
+		var eje_y=prompt("Eje y")*1;
+		var number = -5;
+		var number2 = -1;
+		var numero = 5;
+		var numero2 = 1;
+
+		for (var i=1;i<=41;i++){
+				document.write('<tr></tr>');
+				// alert(i);
+			for (var x=1;x<=40;x++){
+				var pos_y = 20 - (4*eje_y)+1;
+				var pos_x = 21 + (4*eje_x)-1;
+
+				var mas=true;
+				// Si X y Y son positivos
+				if (eje_x>0 && eje_y>0 && x==pos_x && i==pos_y){
+					//mas=false;
+					document.write('<td class="rojo"></td>');	
+				}
+				// Si x es positivo Y negativo
+				if (eje_x>0 && eje_y<0 && x==pos_x && i==pos_y){
+					// mas = false;
+					document.write('<td class="rojo"></td>');	
+				}
+				//Si x es negativo Y es positivo
+					pos_y = 20 - (eje_y  * 4)+1;
+					pos_x = Math.abs(20 - (eje_x *  -4))+1;
+				if (eje_x<0 && eje_y>0 && x==pos_x && i==pos_y){
+					mas = false;
+					document.write('<td class="rojo"></td>');	
+				}
+				// los dos ngativos
+				if(eje_x < 0 && eje_y < 0 && x==pos_x && i==pos_y){
+					mas = false;
+					document.write('<td class="rojo"></td>');	
+				}
+
+				if (x==21){
+					if(i==1 || i==5 || i==9 || i==13 || i==17){
+
+						document.write('<td>'+numero+'</td>');
+						numero--;
+					}else{
+						if (i==25 || i==29 || i==33 || i==37 || i==41){
+
+							document.write('<td>'+(number2)+'</td>');
+							number2--;
+						}	
+					}
+					
+				}
+				if (i==21){
+					if (x%21==0){
+						document.write('<td>'+0+'</td>');
+					}
+					if (x==1 || x==5 || x==9 || x==13 || x==17){
+						document.write('<td>'+number+'</td>');
+						number++;
+					}else{
+						if (x==24 || x==28 || x==32 || x==36 || x==40){
+							document.write('<td>'+numero2+'</td>');
+							numero2++;
+						}else{
+							document.write('<td></td>');
+						}
+					}
+				}else{
+						if(mas==true){
+						document.write('<td></td>');
+					}
+				}
+			}
+		}
+
+	</script>
+</table>
+</body>
+</html>
