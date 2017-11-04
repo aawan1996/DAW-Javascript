@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+    	
+    var texto=prompt("Dime el texto cifrado");
+    var resultado='';
+    var numero=prompt("Dime el desplazamiento")*1;
+    for (var i=0;i<texto.length;i++){
+        var x=texto.charCodeAt(i);
+        if (x-numero>=65){
+            x=x-numero;
+        }
+        else {
+            var diferencia=65-(x-numero);
+            x=91-diferencia;
+        }
+        resultado=resultado+String.fromCharCode(x);
+    }
+    document.write(resultado);
+
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>

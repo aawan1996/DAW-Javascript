@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.hola{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<table >
+	<script type="text/javascript">
+		var num = prompt("Introduce el numero: ")*1;
+		if (isNaN(num)==false && num % 2 != 0) {
+			for(var base=5; base>=1;base=base-2){
+				document.write('<tr>');
+				for(var x = 1; x<=num ;x++){
+					var no_pintar = base - x; // 2
+					var lado = no_pintar / 2; // 1
+
+					if (x<=lado){
+						document.write('<td></td>');
+					}
+					if (x>lado + base) {
+						document.write('<td></td>');
+					}
+					if (x>lado && x<=lado+base) {
+						document.write('<td class="hola></td>');
+					}
+
+				}
+				document.write('</tr>');
+			}
+		}else{
+			document.write("Numero incorrecto!")
+		}
+//		for (var i = num; i > 0; i-=2) {
+	</script>
+</table>
+</body>
+</html>

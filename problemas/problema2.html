@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Problema 2</title>
+	<script type="text/javascript">
+		var primero = prompt("Indica el primer numero: ");
+		var segundo = prompt("Indica el segundo numero: ");
+		var tercero = prompt("Indica el tercer numero: ");
+
+		primero *= 1;
+		segundo *= 1;
+		tercero *= 1;
+
+		var maximo;
+		var minimo;
+		var media;
+		if (primero > segundo && primero > tercero) {
+			maximo = primero;
+		}else if (segundo > primero && segundo > tercero){
+			maximo = segundo;
+		}else if (tercero > primero && tercero > segundo) {
+			maximo = tercero;
+		}else {
+			maximo = primero;
+		}
+
+		console.log("El maximo es: " + maximo);
+
+		if (primero < segundo && primero < tercero) {
+			minimo = primero;
+		}else if (segundo < primero && segundo < tercero){
+			minimo = segundo;
+		}else if (tercero < primero && tercero < segundo) {
+			minimo = tercero;
+		}else {
+			minimo = primero;
+		}
+
+		console.log("El mínimo es: " + minimo);
+		media = (primero + segundo + tercero) / 3;
+		console.log("La media es : " + media);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	
+	var user = prompt('Introduce el string');
+
+	var palabras=1;
+	var vocal=0;
+	var consonante=0;
+	var min = user.toLowerCase();
+	document.write('En mayuscula: '+user.toUpperCase()+'<br/> ');
+	document.write('En minuscula: '+user.toLowerCase()+'<br/> ');
+	document.write('Total: '+user.length);
+
+	if (min.charCodeAt(0) >=97 && min.charCodeAt(0) <= 122) {
+		palabras+=1;
+	}
+
+	for (var i = 0; i < user.length-1; i++) {
+
+		if ((min.charCodeAt(i) >=33 || min.charCodeAt(i) <= 47) && (min.charCodeAt(i) >=58 && min.charCodeAt(i) <= 63) || min.charCodeAt(i)==' ') {
+			if (min.charCodeAt(i+1) >=97 && min.charCodeAt(i+1) <= 122) {
+				palabras+=1;
+			}
+		}
+
+
+		if (user.charAt(i).toLowerCase()=='a' || user.charAt(i).toLowerCase()=='e' || user.charAt(i).toLowerCase()=='i' || user.charAt(i).toLowerCase()=='o' || user.charAt(i).toLowerCase()=='u') {
+			// alert('hola');
+			vocal++;
+		}else{
+			if (user.charCodeAt(i) >= 97 && user.charCodeAt(i) <= 122 ) {
+				consonante++;
+			}
+		}
+		for (var x=0; x<i;x++){
+			document.write(user.charAt(x).toLowerCase());
+		}
+		document.write('<br />');
+	}
+	document.write('Numero de palabras: '+palabras);
+	document.write('<br />'+'Numero de vocales: '+vocal);
+	document.write('<br />'+'Numero de consonante: '+consonante);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

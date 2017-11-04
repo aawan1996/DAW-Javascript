@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var hola = prompt("Introduce");
+		// var letra = hola.toString();
+		var suma = 0;
+		var ok=false;
+		var ok2=false;
+		alert(hola.length);
+		if (hola.length <= 8){		
+			for (var i = 1; i <= hola.length; i++) {
+				if (i%2 != 0){
+					suma += hola.charAt(i-1)*3;
+				}else{
+					suma += hola.charAt(i-1)*1;
+				}
+				// alert(letra.charAt(i-1));
+			}
+			if (hola.length < 8){
+				for (var x=hola.length;x<8;x++){
+					hola = "0" + hola;
+				}
+			}
+		}
+		if (hola.length > 8){
+			for (var i = 1; i <= hola.length; i++) {
+				if (i%2 != 0){
+					suma += hola.charAt(i-1)*3;
+				}else{
+					suma += hola.charAt(i-1)*1;
+				}
+				// alert(letra.charAt(i-1));
+			}
+			for (var x=hola.length;x<13;x++){
+				hola = "0" + hola;
+			}
+			if (hola.substring(0,2)=='50' || hola.substring(0,1)=='0' || hola.substring(0,3)=='380' || hola.substring(0,3)=='539' || hola.substring(0,3)=='560' || hola.substring(0,3)=='70'){
+				ok2 = true;
+			}
+
+		}
+		document.write(hola);
+
+
+		document.write("El valor de suma: "+hola);
+		var ultimo_digito=0;
+		if (suma%10 == 0){
+			ok = true;
+			// alert('Aqui');
+			ultimo_digito = 0;
+		}else{	
+			while (suma%10!=0){
+				suma++;
+				ultimo_digito+=1;
+			}
+			if (hola.charAt(-1)==ultimo_digito){
+				ok = true;
+			}
+		}
+		document.write("<br /> El valor de suma despues de hacerlo: "+ultimo_digito);
+		if (hola.length == 8){		
+			if (ok==true){
+				document.write('<br /> Correcto');
+			}else{
+				document.write('<br /> Incorrecto');
+			}
+		}
+		if (hola.length == 13){
+			if (ok2==true){
+				document.write('<br /> Correcto');
+			}else{
+				document.write('<br /> Incorrecto');
+			}		}
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

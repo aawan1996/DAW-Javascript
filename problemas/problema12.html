@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		tr{
+			background-color: lightyellow;
+		}
+		td{
+			padding: 10px;
+			border: 1px black;
+			border: 1px solid yellow;
+		}
+		table{
+			bor: 1px black;
+		}
+
+	</style>
+
+</head>
+<body>
+	<table>
+	<script type="text/javascript">
+		for (var i = 1; i <= 10; i++) {
+				document.write('<tr>')
+			for (var x = 1;x <= 10;x++) {
+				var suma=x*i;
+				document.write('<td>'+suma+'</td>');
+			}
+				document.write('</tr>')
+		}
+	</script>
+	</table>
+</body>
+</html>

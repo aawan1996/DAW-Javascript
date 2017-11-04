@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var fechaActual = new Date();
+		var preguntarFechaUsuario = prompt('Introduce la fecha:');
+
+		var dia = preguntarFechaUsuario.substr(0, 2);
+		var mes = preguntarFechaUsuario.substr(3, 2) ;
+		var anyo = preguntarFechaUsuario.substr(6, 4);
+
+		var fecha = dia+'-'+mes+'-'+anyo;
+		var fechaUsuario = new Date(anyo,mes-1,dia);
+		// alert(fechaUsuario);
+		//Compruebo si la fecha es correcta 
+		var fecha_ok = 0;
+		// alert(fechaUsuario.getTime());
+
+		if (fechaUsuario.getFullYear() < fechaActual.getFullYear() ) {
+			fecha_ok = 1;
+		}
+
+		if (fechaUsuario.getFullYear() > fechaActual.getFullYear()) {
+			fecha_ok = 0;
+		}
+		if (fechaUsuario.getFullYear() == fechaActual.getFullYear()) {
+			if (fechaUsuario.getMonth() < fechaActual.getMonth()) {
+				if (fechaUsuario.getDate() < fechaActual.getDate()) {
+					fecha_ok = 1;
+				}
+			}else{
+				if (fechaUsuario.getMonth() == fechaActual.getMonth()) {}
+					if (fechaUsuario.getDate() < fechaActual.getDate()) {
+						fecha_ok = 1;
+					}else{
+						fecha_ok = 0;
+					}
+			}
+		}
+		// alert(fecha_ok);
+		// alert(fechaUsuario.getTime());
+		if (fecha_ok==1){
+			if (fechaUsuario.getMonth() == fechaActual.getMonth() &&  fechaUsuario.getDate() == fechaActual.getDate()) {
+				document.write("NO és un No-cumpleaños");
+			}else{
+				if (fechaUsuario.getDate() != fechaActual.getDate() || fechaUsuario.getMonth() != fechaActual.getMonth() ) {
+					var resta = fechaUsuario.getTime() - fechaActual.getTime();
+					resta = resta / 86400000;
+					alert(resta);
+					document.write("SI és un No-cumpleaños <br/>");
+					document.write("Cumple "+Math.round(Math.abs(resta))+" días");
+				}
+			}
+		}else{
+			document.write('Fecha incorrecta, intenta de nuevo :)');
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

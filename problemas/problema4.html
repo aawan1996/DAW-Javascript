@@ -1,0 +1,37 @@
+<!--
+Una determinada companyia telefònica cobra 10 cèntims per establir una
+connexió telefònica i a partir d’aquest moment, 5 cèntims per minut
+tarificant per segons. Si demanem a l’usuari el temps d’una trucada en
+format HH, MM i SS (és a dir, si ens diu quantes hores, minuts i segons ha
+estat en una trucada), mostreu l’import corresponent.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Problema 4</title>
+	<script type="text/javascript">
+		var conex_estab = 0.10;
+		var tarifa = 0.05;
+		//Pido los input
+		var horas = prompt("Horas: ") * 1;
+		var minutos = prompt("Minutos: ") * 1;
+		var segundos = prompt("Segundos: ") * 1;
+
+		//Si horas o minutos es mayor que 0 eso significa que la conexion se establecio. Ya qeu segundos no importan.
+		if (horas > 0 || minutos > 0 || segundos > 0) {
+			var valor_horas = ((horas * 60) * tarifa);
+			var valor_minutos = (minutos * tarifa);
+			var total = valor_horas + valor_minutos + conex_estab;
+		}else{
+			//significa que la llamda no se ha establecido???
+			var total = 0; 
+		}
+		document.getElementById("hola").innerHTML = total;
+		console.log("Total:" + total + " €");
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

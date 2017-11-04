@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.pintar{
+			background-color: black;
+			padding: 30px;
+		}
+
+	</style>
+
+</head>
+<body>
+<table border="1">
+	<script type="text/javascript">
+		var num = prompt("Introduce el numero: ")*1;
+		if (isNaN(num)==false && num % 2 == 0) {
+
+			for (var i = 1; i <= num; i++) {
+				document.write('<tr>');
+				for(var x = 1; x <= num; x++){
+					if (i % 2 != 0) {
+						console.log("Impar, dentro");
+						if (x%2 == 0) {
+							console.log("Estoy dentro de if segundo");
+							document.write('<td class="pintar"></td>');
+						}else{
+							document.write('<td class="no"></td>');
+
+						}
+					}else{
+						if (x%2 != 0) {
+							console.log("Estoy dentro de if segundo");
+							document.write('<td class="pintar"></td>');
+						}else{
+							document.write('<td class="no"></td>');
+
+						}
+					}
+				}
+				document.write('</tr>');
+			}
+
+		}else{
+			document.write('Numero impar');
+			var num = prompt("Introduce el numero: ")*1;
+		}
+	</script>
+</table>
+</body>
+</html>

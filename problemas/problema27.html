@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        // /^[b-df-hj-np-tv-z]{2}([aeiou])+[b-df-hj-np-tv-z]{2,}[b-df-hj-np-tv-z][aeiou]{1}/
+    	// /^[a-z]+\@\[a-z]\.[a-z]$/
+        var palabra=prompt("Dime una palabra").toUpperCase();
+        var chupi=true;
+        var final=false;
+ 
+        var codigo1=palabra.charCodeAt(0);
+        var codigo2=palabra.charCodeAt(1);
+        // Las 2 primeras tienen que ser consonantes
+ 
+        if (codigo1>65 && codigo1<=90 && codigo1!=69 && codigo1!=73 && codigo1!=79 && codigo1!=85) {
+ 	
+        }
+        else {
+            final=true;
+            chupi=false;
+        }
+        if (codigo2>65 && codigo2<=90 && codigo2!=69 && codigo2!=73 && codigo2!=79 && codigo2!=85) {
+ 
+        }
+        else {
+            final=true;
+            chupi=false;
+        }
+        var i=2;
+        // 1 o más vocales
+        while (final==false) {
+            var codigo=palabra.charCodeAt(i);
+            if (codigo==65 || codigo==69 || codigo==73 || codigo==79 || codigo==85){
+                    i++;
+            }
+            else{
+                final=true;
+            }
+        }
+ 
+        if (i==2){
+            chupi=false;
+        }
+        else {
+            final=false;
+        }
+        i++;
+        //2 o más consonantes
+        var contador=0;
+        while(final==false){
+            var codigo=palabra.charCodeAt(i);
+            if (codigo>65 && codigo<=90 && codigo!=69 && codigo!=73 && codigo!=79 && codigo!=85) {
+                contador++;
+                i++;
+            }
+            else {
+                final=true;
+            }
+        }
+        if (contador<2) {
+            chupi=false;
+        }
+ 
+        document.write(palabra+" es chupi: " + chupi);
+        //MIRAR si es GUAY
+        var guay=false;
+        if (contador>=3){
+            var codigo=palabra.charCodeAt(i+1);
+            if (codigo==65 || codigo==69 || codigo==73 || codigo==79 || codigo==85){
+                    guay=true;
+            }          
+ 
+ 
+        }
+        document.write(palabra+" es guay: " + guay);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>

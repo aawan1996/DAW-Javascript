@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        var dia,mes,anyo;
+        var ok=false;
+        while (ok==false) {
+            dia=prompt("Dime el dia entre 1 y 31")*1;
+            if (dia>0 && dia<=31){
+                ok=true;
+            }
+        }
+        mes=prompt("Dime el mes entre 1 y 12")*1;
+        anyo=prompt("Dime el anyo")*1;
+        // Detectar si es bisiesto
+        var bisiesto=false;
+        var resto4=anyo%4;
+        var resto100=anyo%100;
+        var resto400=anyo%400;
+        //bisiesto=(resto4==0)?true:false;
+        bisiesto=((resto4==0 && resto100!=0) ||
+                (resto4==0 && resto400==0))? true:false;
+        var correcto=false;
+        if (mes==1 || mes==3 || mes==5 || mes==7 || mes==8 || mes==10 || mes==12) {
+ 
+            correcto=true;
+ 
+        }
+        else {
+            if (mes==2) {
+                correcto=((bisiesto==true && dia<=29) || (bisiesto==false && dia<=28))?true:false;
+            }
+            else {
+                // Meses de 30 dias dias
+                correcto=(dia<=30)?true:false;
+            }
+        }
+        alert(correcto);
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>

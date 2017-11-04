@@ -1,0 +1,99 @@
+<!-- Obtenir la data actual del sistema. A continuació mostrar per pantalla:
+aquesta data en format llarg (Ex: Avui és DD de MM de YYYY), el nombre de
+setmanes que han passat de l’any, el percentatge de dies transcorreguts de
+l’any, el nombre de dies que resten d’any. 
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		//365
+		document.write('<h3>Dias</h3>')
+		var fechaActual = new Date();
+		var restaAny = new Date("31/12/2017");
+		document.write('Avui es '+fechaActual.getDate()+' de '+fechaActual.getMonth()+' del '+fechaActual.getFullYear());
+
+		var diasFechaActual = fechaActual.getDay();
+		//alert(fechaActual.getMonth());
+		var suma=0;
+		var suma2=0;
+		for (var i = 1; i<=fechaActual.getMonth();i++){
+			if (i==1 || i==3 || i==5 || i==7 || i==8  || i==12 || i==10){
+				suma+=31;
+			}
+			if (i==2){
+				suma+=28;
+			}
+			if (i==4 || i==6 || i==9 || i==11){
+				suma+=30;
+			}
+		}
+		for (var i = 1; i<=13;i++){
+			if (i==1 || i==3 || i==5 || i==7 || i==8  || i==10 || i==12){
+				suma2+=31;
+			}
+			if (i==2){
+				suma2+=28;
+			}
+			if (i==4 || i==6 || i==9 || i==11){
+				suma2+=30;
+			}
+		}
+
+		//alert(suma2);
+		//Sumo los dias que faltan del mes actual
+		suma += fechaActual.getDate();
+		//Una semana son 7 dias, por lo tanto con un round divido los dias contados entre 7
+		var semanas=0;
+		semanas = Math.round(suma / 7);
+		//Para saber cuantos dias faltan del año
+		var diasResta=0;
+		diasResta = (suma2 - suma)-1;
+		//Saco el porcentage de los fias que han pasado
+		var diasTranscorridos = (suma / suma2) * 100;
+
+		document.write('<br/> Semanas pasadas: '+semanas);
+		document.write('<br/> Dias que faltan del año : '+diasResta+1);
+		document.write('<br/> Dias transcorridos : '+Math.round(diasTranscorridos)+'%');
+
+
+// Obtenir la hora actual del sistema
+// i mostrar el mateix respecte al dia actual: Ara són les: HH:MM:SS, el
+// percentatge de dia que ha transcorregut i el que queda. Representeu el
+// percentatge d’any i de dia transcorregut i que queda amb xifres (Ex.
+// 46.5%), i també mitjançant l’ús de símbols gràfics (taules amb cel·les
+// colorejades o imatges).
+
+		document.write('<h3>Horas</h3>');
+		var horaSistema = new Date();
+		alert(horaSistema.getTime());
+		var miHora = new Date("01/01/2017 23:59:59");
+		// alert(miHora.getTime());
+
+		// var c =  (miHora.getTime() - horaSistema.getTime());
+		// alert(c);
+		// var timepoPasado = c / miHora.getTime();
+		// alert(timepoPasado*100);
+
+
+	    var minutosSistema = Math.round(horaSistema.getTime() / (1000*60));
+	    alert(minutosSistema);
+	    //Hora 24
+		var minutosMiHora = Math.round(miHora.getTime() / (1000*60));
+		alert(minutosMiHora);
+
+		var restaMinutos = (minutosMiHora - minutosSistema)*-1;
+		alert(restaMinutos);
+
+		var timepoPasado = minutosMiHora / restaMinutos;
+		alert(timepoPasado);
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

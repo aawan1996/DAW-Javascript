@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+		var user = prompt();
+		var letra = prompt();
+		// var texto = user.toLowerCase();
+		// var final = "";
+		// alert(texto.length);
+		// for (var i = 0; i < texto.length-1; i++) {
+		// 	if(texto.charAt(i)==letra){
+		// 		final += texto.charAt(i+1);
+		// 	}
+		// }
+		// document.write("Mensaje descrifrado (mentira): "+final);
+
+		var fin=false;
+		var actual=0;
+		var resultado="";
+		while(fin==false){
+			var posicion = user.indexOf(letra,actual);
+			if (posicion==-1){
+				fin=true;
+			}else{
+				actual = posicion + 1;
+				resultado += user.charAt(posicion+1);
+			}
+		}
+		document.write(resultado);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

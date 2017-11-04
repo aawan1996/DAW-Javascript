@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var diaN=prompt("Dime el dia:")*1;
+		var mesN=prompt("Dime el mes:")*1;
+		var anyoN=prompt("Dime el anyo:")*1;
+
+		var actual = new Date();
+		var diaAct = actual.getDate();
+		var mesAct = actual.getMonth()+1;
+		var anyoAct = actual.getFullYear();
+		var restaAnyo;
+
+		if (mesN > mesAct) {//  2  3  17
+			restaAnyo = (anyoAct - anyoN)-1;
+			document.write("Tiene"+restaAnyo+' Años');
+		}
+		if (mesN < mesAct) {
+			restaAnyo = (anyoAct - anyoN);
+			document.write("Tiene"+restaAnyo+' Años');			
+		}
+		if (mesN == mesAct) {
+			if (diaN < diaAct) {
+				restaAnyo = (anyoAct - anyoN);
+				document.write("Tiene "+restaAnyo+' Años');
+			}
+			if (diaN > diaAct) {
+				restaAnyo = (anyoAct - anyoN)-1;
+				document.write("Tiene "+restaAnyo+' Años');
+			}
+			if (diaN == diaAct) {
+				document.write("Es tu cumple, y cumples "+(anyoAct - anyoN));
+			}
+		}
+		// Saber que dia de la semana nacio
+		var fechaUsuari = new Date(anyoN,mesN-1,diaN);
+		var diaSemana = fechaUsuari.getDay();
+		switch (diaSemana){
+			case 0:
+				alert("Domingo");
+				break;
+			case 1:
+				alert("Lunes");
+				break;
+			case 2:
+				alert("Martes");
+				break;
+			case 3:
+				alert("Miercoles");
+				break;
+			case 4:
+				alert("Jueves");
+				break;
+			case 5:
+				alert("Viernes");
+				break;
+			case 6:
+				alert("Sabado");
+				break;
+		}
+		// alert(diaSemana);
+
+		//que dia de la semana fue 3 dias despues de nacer
+		var fechaActual = new Date();
+		alert(fechaActual);
+		fechaActual.setDate(fechaActual.getDate()+3);
+		fechaActual.setMonth(fechaActual.getMonth()+3);
+		alert(fechaActual);
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
